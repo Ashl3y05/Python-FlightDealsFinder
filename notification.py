@@ -1,8 +1,8 @@
 import os
 from twilio.rest import Client
 
-FROM = "whatsapp:+14155238886"
-TO = "whatsapp:+639993543575"
+FROM = os.environ["WHATSAPP_FROM"]
+TO = os.environ["WHATSAPP_TO"]
 class SendNotification:
     def __init__(self):
         self.account_sid = os.environ["TWILIO_SID"]

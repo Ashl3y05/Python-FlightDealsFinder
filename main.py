@@ -2,10 +2,12 @@ from flight_deals import FlightDeals
 from destination_data import DestinationData
 from datetime import datetime,timedelta
 from notification import SendNotification
+from user_manager import UserManager
 
 flight_offers = FlightDeals()
 destinations = DestinationData()
 notify = SendNotification()
+users_manager = UserManager()
 
 def get_next_day_date() -> str:
     date_tomorrow = datetime.now() + timedelta(days=1)
@@ -35,3 +37,6 @@ for item in city_iata:
         print(f"LOWEST!! - last{last_price} - now{lowest_price}")
     row += 1
     destinations.put_excel_data(city=item, iata_code=city_iata[item], lowest_price=lowest_price,row_id=row)
+
+result = users_manager.get_user_email()
+print(result)
