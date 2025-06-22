@@ -15,3 +15,5 @@ class UserManager:
         return all_emails
 
 
+    def send_email(self):
+        pass
