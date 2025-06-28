@@ -18,9 +18,13 @@ class UserManager:
         return all_emails
 
 
-    def send_email(self):
+    def send_email(self, subject, message):
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()
             server.login(self.sender_email, self.password)
-            server.send_message()
+            server.sendmail(
+                from_addr=self.sender_email,
+                to_addrs=self.receiver_email,
+                msg=f"Subject:{subject}\n\n{message}"
+            )
         pass
