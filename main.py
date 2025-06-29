@@ -35,6 +35,10 @@ for item in city_iata:
         message = f"LOWEST!! only P{lowest_price} from {ORIGIN_CITY} to {city_iata[item]}!"
         notify.send_message(message)
         print(f"LOWEST!! - last{last_price} - now{lowest_price}")
+        users_manager.send_email(
+            subject=f"Lowest price to {city_iata[item]}",
+            message=f"LOWEST!! From {ORIGIN_CITY} to {city_iata[item]} \n"
+                    f"Before: P{last_price} - Updated: P{lowest_price}")
     row += 1
     destinations.put_excel_data(city=item, iata_code=city_iata[item], lowest_price=lowest_price,row_id=row)
 

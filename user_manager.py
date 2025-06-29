@@ -27,4 +27,3 @@ class UserManager:
                 to_addrs=self.receiver_email,
                 msg=f"Subject:{subject}\n\n{message}"
             )
-        pass
